@@ -3,7 +3,7 @@
   "short_name": "PrimeChat",
   "description": "Premium real-time communication platform",
   "start_url": "/",
-  "scope": "/"
+  "scope": "/",
   "display": "standalone",
   "background_color": "#032539",
   "theme_color": "#123249",
