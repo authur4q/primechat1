@@ -4,7 +4,7 @@ import { useSearchParams, useRouter } from "next/navigation";
 import styles from "./reset.module.css";
 
 function ResetPasswordContent() {
-  const searchParams = useSearchParams();
+  const searchParams = useSearchParams()
   const router = useRouter();
   const token = searchParams.get("token");
 
