@@ -33,7 +33,7 @@ export async function POST(req) {
     const resend = new Resend(process.env.RESEND_API_KEY);
     
     const { data, error } = await resend.emails.send({
-      from: 'onboarding@resend.dev',
+      from: 'PrimeChat <onboarding@resend.dev>',
       to: email,
       subject: 'Password Reset Request',
       html: `
