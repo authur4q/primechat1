@@ -3,7 +3,7 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #032539; /* Matches your app background */
+  background-color: #032539; 
   padding: 1.25rem;
 }
 
@@ -14,7 +14,7 @@
   padding: 2.5rem;
   border-radius: 1rem;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(165, 94, 234, 0.3); /* Subtle purple border */
+  border: 1px solid rgba(165, 94, 234, 0.3); 
 }
 
 .header {
@@ -61,7 +61,7 @@
   font-size: 1rem;
   box-sizing: border-box;
   transition: all 0.2s ease;
-  text-align: center; /* Matching your preference for centered text */
+  text-align: center; 
 }
 
 .input:focus {
