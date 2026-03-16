@@ -53,13 +53,23 @@ app.prepare().then(async () => {
           socketId: socket.id
         })
 
-        io.to(data.room).emit('receive-message', {
+        const messagePayload = {
           text: newMessage.text,
           user: newMessage.user,
           room: newMessage.room,
           id: socket.id,
-          time: new Date(newMessage.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+          time: new Date(newMessage.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+          createdAt: newMessage.createdAt
+        }
+
+        io.to(data.room).emit('receive-message', messagePayload)
+        
+        io.emit('update-sidebar', {
+          room: data.room,
+          lastMessage: data.text,
+          updatedAt: newMessage.createdAt
         })
+
       } catch (err) {
         console.error(err)
       }
