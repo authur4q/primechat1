@@ -228,7 +228,7 @@ export default function ChatPage() {
                 <div className={styles.roomInfo}>
                   <strong>{user.username}</strong>
                   <small className={styles.lastMessagePreview}>
-                    {user.lastMessageText || user.phone}
+                    {user.lastMessageText}
                   </small>
                 </div>
               </div>
