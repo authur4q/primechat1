@@ -1,6 +1,6 @@
 .loginWrapper {
   display: flex;
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
   align-items: center;
   justify-content: center;
@@ -10,10 +10,9 @@
 .loginContainer {
   display: flex;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
 }
 
-/* Left Side: Form Section */
 .formSection {
   display: flex;
   flex-direction: column;
@@ -21,7 +20,7 @@
   align-items: center;
   justify-content: center;
   background-color: rgba(255, 255, 255, 0.95);
-  padding: 40px;
+  padding: 40px 20px;
   width: 40%;
   z-index: 2;
   box-shadow: 10px 0 30px rgba(0, 0, 0, 0.2);
@@ -149,7 +148,6 @@
   border-radius: 5px;
 }
 
-/* Right Side: Info Section */
 .infoSection {
   width: 60%;
   height: 100vh;
@@ -180,17 +178,33 @@
   font-weight: 300;
 }
 
-/* Responsiveness */
 @media (max-width: 1024px) {
   .formSection { width: 50%; }
   .infoSection { width: 50%; }
 }
 
 @media (max-width: 768px) {
-  .loginContainer { flex-direction: column; }
-  .infoSection { display: none; }
+  .infoSection { 
+    display: none; 
+  }
+
+  .loginContainer {
+    flex-direction: column;
+  }
+
   .formSection {
     width: 100%;
+    min-height: 100vh;
+    padding: 40px 15px;
     background-color: white;
+    box-shadow: none;
+  }
+
+  .form input, .loginBtn, .registerBtn, .divider {
+    width: 95%;
+  }
+
+  .form input {
+    font-size: 16px;
   }
 }
