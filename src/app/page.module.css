@@ -7,7 +7,6 @@
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
-/* Sidebar Styling */
 .sidebar {
   flex: 30%;
   min-width: 350px;
@@ -18,7 +17,6 @@
   border-right: 1px solid #d1d7db;
 }
 
-/* Logo Styling */
 .logoSection {
   padding: 15px 16px;
   display: flex;
@@ -55,6 +53,25 @@
   display: flex;
   flex-direction: column;
 }
+.headerTitleGroup {
+  display: flex;
+  flex-direction: column;
+}
+.lastMessagePreview {
+  color: #8fa3b0;
+  font-size: 13px;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px;
+}
+.typingIndicator {
+  font-size: 12px;
+  color: #27ae60;
+  font-style: italic;
+  font-weight: 400;
+}
 
 .headerInfo strong { 
   color: white; 
@@ -70,7 +87,23 @@
   font-weight: 600; color: #54656f;
 }
 
-/* Search Styling */
+.avatarWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.greenDot {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 12px;
+  height: 12px;
+  background-color: #2ecc71;
+  border: 2px solid #123249;
+  border-radius: 50%;
+  z-index: 2;
+}
+
 .searchContainer { 
   padding: 10px 16px; 
   background: #123249; 
@@ -139,7 +172,6 @@
   font-size: 14px;
 }
 
-/* Chat Area Styling */
 .chatContainer {
   flex: 70%;
   display: flex;
@@ -226,15 +258,16 @@
   background-color: #42464967;
   padding: 10px 15px;
   resize: none;
-  font-size: 1.4rem;
+  font-size: 1.1rem;
   border-radius: 20px;
+  font-family: Arial, Helvetica, sans-serif;
   outline: none;
   height: 70px;
   max-height: 110px;
 }
 
 .inputField::placeholder {
-  font-family: 1rem;
+  font-family: 13pxrem;
   font-style: italic;
   color: rgba(255, 255, 255, 0.801);
 }
@@ -259,7 +292,6 @@
 
 .emptyIcon { font-size: 80px; margin-bottom: 20px; opacity: 0.2; }
 
-/* MOBILE RESPONSIVE */
 @media (max-width: 768px) {
   .sidebar {
     min-width: 100%;
