@@ -4,10 +4,6 @@ import Message from "../../../../models/message"
 import { NextResponse } from "next/server"
 import bcrypt from "bcryptjs"
 import { getServerSession } from "next-auth"
-<<<<<<< HEAD
-=======
-
->>>>>>> 1e56c28ea77123b910ce0c39f7e6cc5b4d329dc8
 import { options } from "../auth/[...nextauth]/options"
 
 export const POST = async (req) => {
@@ -129,7 +125,6 @@ export const GET = async (req) => {
     return NextResponse.json({ error: "Failed to fetch users" }, { status: 500 });
   }
 }
-<<<<<<< HEAD
 
 export const PUT = async (req) => {
   try {
@@ -210,5 +205,3 @@ export const PUT = async (req) => {
     return NextResponse.json({ error: "Failed to update profile" }, { status: 500 });
   }
 }
-=======
->>>>>>> 1e56c28ea77123b910ce0c39f7e6cc5b4d329dc8

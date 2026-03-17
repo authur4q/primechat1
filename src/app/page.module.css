@@ -163,26 +163,6 @@
   font-weight: 500;
 }
 
-<<<<<<< HEAD
-=======
-.avatarWrapper {
-  position: relative;
-  display: inline-block;
-}
-
-.greenDot {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 12px;
-  height: 12px;
-  background-color: #2ecc71;
-  border: 2px solid #123249;
-  border-radius: 50%;
-  z-index: 2;
-}
-
->>>>>>> 1e56c28ea77123b910ce0c39f7e6cc5b4d329dc8
 .searchContainer { 
   padding: 10px 16px; 
   background: var(--bg-sidebar); 
@@ -241,16 +221,6 @@
 
 .roomInfo small { color: var(--text-muted); font-size: 13px; }
 
-<<<<<<< HEAD
-=======
-.noResult {
-  padding: 20px;
-  text-align: center;
-  color: #8fa3b0;
-  font-size: 14px;
-}
-
->>>>>>> 1e56c28ea77123b910ce0c39f7e6cc5b4d329dc8
 .chatContainer {
   flex: 70%;
   display: flex;
@@ -344,7 +314,6 @@
   background-color: var(--input-bg);
   padding: 12px 20px;
   resize: none;
-<<<<<<< HEAD
   font-size: 15px;
   border-radius: 24px;
   color: var(--text-main);
@@ -352,20 +321,6 @@
   min-height: 45px;
   max-height: 120px;
   transition: all 0.2s ease;
-=======
-  font-size: 1.1rem;
-  border-radius: 20px;
-  font-family: Arial, Helvetica, sans-serif;
-  outline: none;
-  height: 70px;
-  max-height: 110px;
-}
-
-.inputField::placeholder {
-  font-family: 13pxrem;
-  font-style: italic;
-  color: rgba(255, 255, 255, 0.801);
->>>>>>> 1e56c28ea77123b910ce0c39f7e6cc5b4d329dc8
 }
 
 .sendButton {
@@ -395,41 +350,11 @@
 
 .emptyIcon { font-size: 80px; margin-bottom: 20px; opacity: 0.2; }
 
-<<<<<<< HEAD
-=======
-@media (max-width: 768px) {
-  .sidebar {
-    min-width: 100%;
-    display: flex;
-  }
-
-  .chatContainer { display: none; }
-
-  .mainWrapper:not(.noRoomSelected) .sidebar {
-    display: none;
-  }
-
-  .mainWrapper:not(.noRoomSelected) .chatContainer {
-    display: flex;
-    flex: 100%;
-  }
-
-  .backButton {
-    display: block;
-    background: none; border: none;
-    font-size: 24px; margin-right: 10px;
-  }
-
-  .messageBubble { max-width: 85%; }
-}
-
->>>>>>> 1e56c28ea77123b910ce0c39f7e6cc5b4d329dc8
 .loading {
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-<<<<<<< HEAD
   background: var(--bg-app);
   color: var(--text-main);
 }
@@ -441,7 +366,3 @@
   .mainWrapper:not(.noRoomSelected) .chatContainer { display: flex; flex: 100%; }
   .messageBubble { max-width: 85%; }
 }
-=======
-  background: #f0f2f5;
-}
->>>>>>> 1e56c28ea77123b910ce0c39f7e6cc5b4d329dc8
