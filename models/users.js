@@ -4,13 +4,13 @@ const userSchema = new Schema({
   username: {
     type: String,
     required: true,
-    unique:true
+    unique: true
   },
   phone: {
     type: String,
     required: true,
-    unique:true,
-    trim:true
+    unique: true,
+    trim: true
   },
   email: {
     type: String,
@@ -25,6 +25,18 @@ const userSchema = new Schema({
   role: {
     type: String,
     default: "user"
+  },
+  about: {
+    type: String,
+    default: ""
+  },
+  instagram: {
+    type: String,
+    default: "https://www.instagram.com/accounts/login/?hl=en"
+  },
+  tiktok: {
+    type: String,
+    default: "https://www.tiktok.com/login"
   },
   forgotPasswordToken: String,
   forgotPasswordTokenExpiry: Date,

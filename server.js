@@ -48,18 +48,47 @@ app.prepare().then(async () => {
       try {
         const newMessage = await Message.create({
           text: data.text,
-          user: data.user,
+          user: data.user, 
           room: data.room,
           socketId: socket.id
         })
 
-        io.to(data.room).emit('receive-message', {
+        const messagePayload = {
+          _id: newMessage._id,
           text: newMessage.text,
           user: newMessage.user,
           room: newMessage.room,
           id: socket.id,
-          time: new Date(newMessage.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+          time: new Date(newMessage.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+          createdAt: newMessage.createdAt
+        }
+
+        io.to(data.room).emit('receive-message', messagePayload)
+        
+        io.emit('update-sidebar', {
+          room: data.room,
+          sender: data.user, 
+          lastMessage: data.text,
+          updatedAt: newMessage.createdAt
         })
+
+      } catch (err) {
+        console.error(err)
+      }
+    })
+
+    socket.on('typing', (data) => {
+      socket.to(data.room).emit('display-typing', data)
+    })
+
+    socket.on('stop-typing', (data) => {
+      socket.to(data.room).emit('hide-typing', data)
+    })
+
+    socket.on('delete-message', async (data) => {
+      try {
+        await Message.findByIdAndDelete(data.messageId)
+        io.to(data.room).emit('message-deleted', data.messageId)
       } catch (err) {
         console.error(err)
       }

@@ -1,7 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
 import { AuthProvider } from "../../providers";
+import { ThemeProvider } from "../../ThemeProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -12,7 +12,6 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
-
 
 export const metadata = {
   title: "PrimeChat",
@@ -25,20 +24,21 @@ export const metadata = {
   },
 };
 
-
 export const viewport = {
-  themeColor: "#032539",
+  themeColor: "#123249",
   width: "device-width",
   initialScale: 1,
   maximumScale: 1,
 };
+
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <AuthProvider>
-       
-          {children}
+          <ThemeProvider>
+            {children}
+          </ThemeProvider>
         </AuthProvider>
       </body>
     </html>

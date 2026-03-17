@@ -27,13 +27,13 @@ export async function POST(req) {
     user.forgotPasswordTokenExpiry = expiry;
     await user.save();
 
-    const baseUrl = process.env.NEXT_PUBLIC_URL || "http://localhost:3000";
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
     const resetLink = `${baseUrl}/reset-password?token=${resetToken}`;
 
     const resend = new Resend(process.env.RESEND_API_KEY);
     
     const { data, error } = await resend.emails.send({
-      from: 'onboarding@resend.dev',
+      from: 'PrimeChat <onboarding@resend.dev>',
       to: email,
       subject: 'Password Reset Request',
       html: `

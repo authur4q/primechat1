@@ -1,8 +1,28 @@
+:root {
+  --bg-app: #f0f4f8;
+  --bg-card: #ffffff;
+  --text-main: #123249;
+  --text-muted: #64748b;
+  --border-ui: #e2e8f0;
+  --navy-primary: #123249;
+}
 
+[data-theme='dark'] {
+  --bg-app: #0a1a26;
+  --bg-card: #123249;
+  --text-main: #ffffff;
+  --text-muted: #94a3b8;
+  --border-ui: #1e3a52;
+  --navy-primary: #ffffff;
+}
 
 body {
   max-width: 100vw;
   overflow-x: hidden;
+  background-color: var(--bg-app);
+  color: var(--text-main);
+  transition: background-color 0.3s ease, color 0.3s ease;
+
 }
 
 

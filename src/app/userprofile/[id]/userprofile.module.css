@@ -1,0 +1,209 @@
+.container {
+  --bg-app: #ffffff;
+  --bg-card: #f8fafc;
+  --text-main: #1e293b;
+  --text-title: #0f172a;
+  --text-muted: #64748b;
+  --text-detail-label: #94a3b8;
+  --border-ui: #f1f5f9;
+  --border-social: #e2e8f0;
+  --navy-accent: #123249;
+  --purple-accent: #a55eea;
+
+  min-height: 100vh;
+  background-color: var(--bg-app);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--text-main);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+:global([data-theme='dark']) .container {
+  --bg-app: #0a141d;
+  --bg-card: #123249;
+  --text-main: #cbd5e1;
+  --text-title: #ffffff;
+  --text-muted: #94a3b8;
+  --text-detail-label: #64748b;
+  --border-ui: #1e2f3e;
+  --border-social: #1e2f3e;
+}
+
+.header {
+  padding: 16px 20px;
+}
+
+.backBtn {
+  background: none;
+  border: none;
+  font-size: 0.95rem;
+  color: var(--purple-accent);
+  cursor: pointer;
+  font-weight: 600;
+  padding: 8px 0;
+}
+
+.content {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 0 24px 60px;
+}
+
+.topSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.avatarExtraLarge {
+  width: 100px;
+  height: 100px;
+  background: var(--purple-accent);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  box-shadow: 0 10px 15px -3px rgba(165, 94, 234, 0.2);
+}
+
+.username {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--text-title);
+  letter-spacing: -0.02em;
+}
+
+.status {
+  color: #10b981;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+.aboutSection {
+  margin-bottom: 32px;
+  padding: 0 4px;
+}
+
+.aboutSection h3 {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.aboutText {
+  line-height: 1.5;
+  color: var(--text-main);
+  font-size: 1rem;
+  margin: 0;
+}
+
+.detailsCard {
+  background: var(--bg-card);
+  border: 1px solid var(--border-ui);
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 28px;
+}
+
+.detailItem {
+  margin-bottom: 16px;
+}
+
+.detailItem:last-child {
+  margin-bottom: 0;
+}
+
+.detailItem label {
+  display: block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  color: var(--text-detail-label);
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.detailItem span {
+  font-weight: 500;
+  font-size: 1rem;
+  color: var(--text-main);
+}
+
+.socialSection h3 {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+  padding-left: 4px;
+}
+
+.socialGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.socialItem {
+  background: var(--bg-card);
+  border: 1px solid var(--border-social);
+  padding: 12px;
+  border-radius: 12px;
+}
+
+.socialLabel {
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--purple-accent);
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.socialValue {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.dangerZone {
+  border-top: 1px solid var(--border-ui);
+  padding-top: 12px;
+}
+
+.dangerBtn {
+  display: block;
+  width: 100%;
+  background: none;
+  border: none;
+  color: #ef4444;
+  padding: 12px 8px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+.dangerBtn:hover {
+  background: #fef2f2;
+}
+
+:global([data-theme='dark']) .dangerBtn:hover {
+  background: rgba(239, 68, 68, 0.1);
+}
+
+@media (max-width: 480px) {
+  .socialGrid {
+    grid-template-columns: 1fr;
+  }
+}

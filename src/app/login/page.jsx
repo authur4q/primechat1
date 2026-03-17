@@ -93,7 +93,7 @@ const LoginPage = () => {
 
             <Link href="/register">
               <button type="button" className={styles.registerBtn}>
-                New to PrimeChats? Sign Up
+                New to PrimeChat? Sign Up
               </button>
             </Link>
           </form>

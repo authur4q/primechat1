@@ -1,30 +1,50 @@
 .loginWrapper {
+  --bg-app: #032539;
+  --bg-form: rgba(255, 255, 255, 0.95);
+  --bg-input: #ffffff;
+  --text-main: #123249;
+  --text-muted: #8fa3b0;
+  --border-ui: #d1d7db;
+  --purple-accent: #a55eea;
+  --navy-deep: #061222;
+
   display: flex;
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
   align-items: center;
   justify-content: center;
-  background-color: #032539;
+  background-color: var(--bg-app);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+:global([data-theme='dark']) .loginWrapper {
+  --bg-app: #060d16;
+  --bg-form: #123249;
+  --bg-input: #1c3d5a;
+  --text-main: #ffffff;
+  --text-muted: #94a3b8;
+  --border-ui: #1e2f3e;
+  --navy-deep: #061222;
 }
 
 .loginContainer {
   display: flex;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
 }
 
-/* Left Side: Form Section */
 .formSection {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 24px;
   align-items: center;
   justify-content: center;
-  background-color: rgba(255, 255, 255, 0.95);
+  background-color: var(--bg-form);
   padding: 40px;
   width: 40%;
   z-index: 2;
   box-shadow: 10px 0 30px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
 }
 
 .logoArea {
@@ -35,16 +55,26 @@
 }
 
 .logoIcon {
-  font-size: 32px;
-  filter: drop-shadow(0 0 5px rgba(165, 94, 234, 0.5));
+  font-size: 36px;
+  filter: drop-shadow(0 0 8px rgba(165, 94, 234, 0.4));
 }
 
 .logoText {
   font-size: 32px;
-  font-weight: 700;
-  font-style: italic;
+  font-weight: 800;
+  letter-spacing: -0.03em;
   margin: 0;
+  background: linear-gradient(to right, #a55eea, #ffffff);
+}
+
+:global([data-theme='light']) .logoText {
   background: linear-gradient(to right, #123249, #a55eea);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+:global([data-theme='dark']) .logoText {
+  background: linear-gradient(to right, #ffffff, #a55eea);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -54,106 +84,120 @@
   flex-direction: column;
   width: 100%;
   align-items: center;
-  gap: 15px;
+  gap: 16px;
 }
 
 .form input {
-  border-radius: 10px;
+  border-radius: 12px;
   width: 90%;
   outline: none;
-  color: #123249;
-  border: 1px solid #d1d7db;
-  font-size: 1.1rem;
-  padding: 12px 15px;
-  text-align: center;
+  color: var(--text-main);
+  background-color: var(--bg-input);
+  border: 1px solid var(--border-ui);
+  font-size: 1rem;
+  padding: 14px 20px;
+  text-align: left;
+  transition: all 0.2s ease;
 }
 
 .form input:focus {
-  border-color: #a55eea;
+  border-color: var(--purple-accent);
+  box-shadow: 0 0 0 4px rgba(165, 94, 234, 0.1);
 }
 
 .form input::placeholder {
-  color: #8fa3b0;
-  font-style: italic;
-  font-size: 1rem;
+  color: var(--text-muted);
+  font-size: 0.95rem;
 }
 
 .loginBtn {
-  border-radius: 10px;
-  font-size: 1.1rem;
-  padding: 13px;
-  background-color: #123249;
+  border-radius: 12px;
+  font-size: 1rem;
+  padding: 14px;
+  background-color: var(--purple-accent);
   color: white;
   cursor: pointer;
   width: 90%;
   border: none;
-  font-weight: 600;
-  margin-top: 10px;
+  font-weight: 700;
+  margin-top: 8px;
+  transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
 .loginBtn:hover {
-  background-color: #061222;
+  background-color: #934de0;
+  transform: translateY(-1px);
 }
 
 .loginBtn:disabled {
-  opacity: 0.7;
+  opacity: 0.5;
   cursor: not-allowed;
 }
 
 .forgotBtn {
   background: none;
   border: none;
-  color: #a55eea;
+  color: var(--purple-accent);
   cursor: pointer;
   font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.forgotBtn:hover {
   text-decoration: underline;
 }
 
 .divider {
   width: 90%;
   text-align: center;
-  border-bottom: 1px solid #d1d7db;
+  border-bottom: 1px solid var(--border-ui);
   line-height: 0.1em;
-  margin: 10px 0;
+  margin: 20px 0;
 }
 
 .divider span {
-  background: #fff;
-  padding: 0 10px;
-  color: #667781;
-  font-style: italic;
+  background: var(--bg-form);
+  padding: 0 15px;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
 }
 
 .registerBtn {
-  border-radius: 10px;
+  border-radius: 12px;
   font-size: 1rem;
-  padding: 12px;
+  padding: 13px;
   background-color: transparent;
-  color: #123249;
-  border: 1px solid #123249;
+  color: var(--text-main);
+  border: 2px solid var(--purple-accent);
   cursor: pointer;
   width: 90%;
+  font-weight: 700;
+  transition: all 0.2s ease;
 }
 
 .registerBtn:hover {
-  background-color: #f0f2f5;
+  background-color: var(--purple-accent);
+  color: white;
 }
 
 .error {
-  color: #e74c3c;
+  color: #ffffff;
   font-size: 0.9rem;
+  font-weight: 500;
   text-align: center;
   width: 90%;
-  background: #fdeaea;
-  padding: 8px;
-  border-radius: 5px;
+  background: #e74c3c;
+  padding: 12px;
+  border-radius: 10px;
 }
 
-/* Right Side: Info Section */
 .infoSection {
   width: 60%;
   height: 100vh;
-  background: linear-gradient(rgba(18, 50, 73, 0.8), rgba(6, 18, 34, 0.8)), url('/store2.jpg');
+  background: linear-gradient(rgba(18, 50, 73, 0.7), rgba(6, 18, 34, 0.9)), url('/store2.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -162,35 +206,47 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 40px;
+  padding: 60px;
 }
 
 .infoSection h1 {
-  font-size: 3rem;
+  font-size: 3.5rem;
   color: white;
-  font-style: italic;
-  font-weight: 500;
-  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
 }
 
 .infoSection p {
-  color: #a55eea;
-  font-size: 1.2rem;
-  margin-top: 15px;
-  font-weight: 300;
+  color: var(--purple-accent);
+  font-size: 1.4rem;
+  margin-top: 20px;
+  font-weight: 500;
 }
 
-/* Responsiveness */
 @media (max-width: 1024px) {
   .formSection { width: 50%; }
   .infoSection { width: 50%; }
 }
 
 @media (max-width: 768px) {
-  .loginContainer { flex-direction: column; }
-  .infoSection { display: none; }
+  .infoSection { 
+    display: none; 
+  }
+
+  .loginContainer {
+    flex-direction: column;
+  }
+
   .formSection {
     width: 100%;
-    background-color: white;
+    min-height: 100vh;
+    padding: 40px 24px;
+    background-color: var(--bg-form);
+    box-shadow: none;
+  }
+
+  .form input, .loginBtn, .registerBtn, .divider {
+    width: 100%;
   }
 }
