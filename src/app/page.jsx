@@ -50,6 +50,10 @@ export default function ChatPage() {
   useEffect(() => {
     socket.on('update-sidebar', (data) => {
       const { room: incomingRoom, updatedAt, sender, lastMessage } = data
+<<<<<<< HEAD
+=======
+      
+>>>>>>> 1e56c28ea77123b910ce0c39f7e6cc5b4d329dc8
       const isNotCurrentRoom = incomingRoom !== room
       const amIReceiver = sender !== session?.user?.username
 
@@ -72,6 +76,7 @@ export default function ChatPage() {
       })
     })
 
+<<<<<<< HEAD
     socket.on('message-deleted', (messageId) => {
       setChat((prev) => prev.filter(msg => msg._id !== messageId))
     })
@@ -80,6 +85,9 @@ export default function ChatPage() {
       socket.off('update-sidebar')
       socket.off('message-deleted')
     }
+=======
+    return () => socket.off('update-sidebar')
+>>>>>>> 1e56c28ea77123b910ce0c39f7e6cc5b4d329dc8
   }, [room, session])
 
   useEffect(() => {
@@ -107,7 +115,11 @@ export default function ChatPage() {
 
       socket.on('display-typing', (data) => {
         if (data.room === room && data.user !== session?.user?.username) {
+<<<<<<< HEAD
           setTypingStatus(`is typing...`)
+=======
+          setTypingStatus(`${data.user} is typing...`)
+>>>>>>> 1e56c28ea77123b910ce0c39f7e6cc5b4d329dc8
         }
       })
 
@@ -145,7 +157,10 @@ export default function ChatPage() {
     setChat([])
     setRoom(targetUser.roomID)
     setActiveChatName(targetUser.username)
+<<<<<<< HEAD
     setActiveChatId(targetUser._id) 
+=======
+>>>>>>> 1e56c28ea77123b910ce0c39f7e6cc5b4d329dc8
     clearUnread(targetUser.roomID)
   }
 
@@ -162,15 +177,19 @@ export default function ChatPage() {
   const sendMessage = async (e) => {
     if (e) e.preventDefault()
     if (!message.trim() || !session || !room) return
+<<<<<<< HEAD
     
     await update()
 
+=======
+>>>>>>> 1e56c28ea77123b910ce0c39f7e6cc5b4d329dc8
     const data = { text: message, user: session.user.username, room: room }
     socket.emit('send-message', data)
     socket.emit('stop-typing', { room })
     setMessage('')
   }
 
+<<<<<<< HEAD
   const deleteMessage = (msg) => {
     if (msg.user !== session?.user?.username) return
     if (window.confirm("Delete this message?")) {
@@ -178,11 +197,17 @@ export default function ChatPage() {
     }
   }
 
+=======
+>>>>>>> 1e56c28ea77123b910ce0c39f7e6cc5b4d329dc8
   const filteredUsers = dbUsers.filter(user => 
     user.username.toLowerCase().includes(searchQuery.toLowerCase())
   )
 
+<<<<<<< HEAD
  
+=======
+  if (status === "loading") return <div className={styles.loading}>Connecting...</div>
+>>>>>>> 1e56c28ea77123b910ce0c39f7e6cc5b4d329dc8
 
   return (
     <div className={`${styles.mainWrapper} ${!room ? styles.noRoomSelected : ''}`}>
@@ -220,7 +245,10 @@ export default function ChatPage() {
               setChat([]); 
               setRoom('public'); 
               setActiveChatName('The Prime Hub');
+<<<<<<< HEAD
               setActiveChatId(''); 
+=======
+>>>>>>> 1e56c28ea77123b910ce0c39f7e6cc5b4d329dc8
               clearUnread('public');
             }}
           >
@@ -244,9 +272,13 @@ export default function ChatPage() {
                 onClick={() => startPrivateChat(user)}
               >
                 <div className={styles.avatarWrapper}>
+<<<<<<< HEAD
                   <Link href={`/userprofile/${user._id}`} className={styles.avatarLink}>
                     <div className={styles.avatarCircle}>{user.username[0].toUpperCase()}</div>
                   </Link>
+=======
+                  <div className={styles.avatarCircle}>{user.username[0].toUpperCase()}</div>
+>>>>>>> 1e56c28ea77123b910ce0c39f7e6cc5b4d329dc8
                   {unreadRooms[user.roomID] && <div className={styles.greenDot}></div>}
                 </div>
                 <div className={styles.roomInfo}>
@@ -282,6 +314,13 @@ export default function ChatPage() {
                 <strong>{activeChatName}</strong>
                 {typingStatus && <span className={styles.typingIndicator}>{typingStatus}</span>}
               </div>
+<<<<<<< HEAD
+=======
+              <div className={styles.headerTitleGroup}>
+                <strong>{activeChatName}</strong>
+                {typingStatus && <span className={styles.typingIndicator}>{typingStatus}</span>}
+              </div>
+>>>>>>> 1e56c28ea77123b910ce0c39f7e6cc5b4d329dc8
             </header>
 
             <div className={styles.messageArea}>

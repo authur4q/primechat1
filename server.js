@@ -54,7 +54,10 @@ app.prepare().then(async () => {
         })
 
         const messagePayload = {
+<<<<<<< HEAD
           _id: newMessage._id,
+=======
+>>>>>>> 1e56c28ea77123b910ce0c39f7e6cc5b4d329dc8
           text: newMessage.text,
           user: newMessage.user,
           room: newMessage.room,
@@ -67,11 +70,15 @@ app.prepare().then(async () => {
         
         io.emit('update-sidebar', {
           room: data.room,
+<<<<<<< HEAD
           sender: data.user, 
+=======
+>>>>>>> 1e56c28ea77123b910ce0c39f7e6cc5b4d329dc8
           lastMessage: data.text,
           updatedAt: newMessage.createdAt
         })
 
+<<<<<<< HEAD
       } catch (err) {
         console.error(err)
       }
@@ -89,6 +96,8 @@ app.prepare().then(async () => {
       try {
         await Message.findByIdAndDelete(data.messageId)
         io.to(data.room).emit('message-deleted', data.messageId)
+=======
+>>>>>>> 1e56c28ea77123b910ce0c39f7e6cc5b4d329dc8
       } catch (err) {
         console.error(err)
       }

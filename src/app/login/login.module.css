@@ -39,8 +39,13 @@
   gap: 24px;
   align-items: center;
   justify-content: center;
+<<<<<<< HEAD
   background-color: var(--bg-form);
   padding: 40px;
+=======
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 40px 20px;
+>>>>>>> 1e56c28ea77123b910ce0c39f7e6cc5b4d329dc8
   width: 40%;
   z-index: 2;
   box-shadow: 10px 0 30px rgba(0, 0, 0, 0.2);
@@ -241,6 +246,7 @@
   .formSection {
     width: 100%;
     min-height: 100vh;
+<<<<<<< HEAD
     padding: 40px 24px;
     background-color: var(--bg-form);
     box-shadow: none;
@@ -248,5 +254,18 @@
 
   .form input, .loginBtn, .registerBtn, .divider {
     width: 100%;
+=======
+    padding: 40px 15px;
+    background-color: white;
+    box-shadow: none;
+>>>>>>> 1e56c28ea77123b910ce0c39f7e6cc5b4d329dc8
+  }
+
+  .form input, .loginBtn, .registerBtn, .divider {
+    width: 95%;
+  }
+
+  .form input {
+    font-size: 16px;
   }
 }
