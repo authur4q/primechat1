@@ -40,7 +40,22 @@ export const options = {
     }),
   ],
   secret: process.env.NEXTAUTH_SECRET,
-  session: { strategy: "jwt" },
+  session: { 
+    strategy: "jwt",
+    maxAge: 30 * 24 * 60 * 60,
+    updateAge: 24 * 60 * 60,
+  },
+  cookies: {
+    sessionToken: {
+      name: `next-auth.session-token`,
+      options: {
+        httpOnly: true,
+        sameSite: 'lax',
+        path: '/',
+        secure: process.env.NODE_ENV === "production",
+      },
+    },
+  },
   pages: { signIn: "/auth/signin" },
   callbacks: {
     async jwt({ token, user, trigger, session }) {
@@ -54,18 +69,8 @@ export const options = {
         token.phone = user.phone;
       }
       
-      if (trigger === "update") {
-        await connectDb();
-        const updatedUser = await User.findById(token.id).lean();
-        
-        if (updatedUser) {
-          token.username = updatedUser.username;
-          token.about = updatedUser.about;
-          token.instagram = updatedUser.instagram;
-          token.tiktok = updatedUser.tiktok;
-          token.phone = updatedUser.phone;
-          token.role = updatedUser.role;
-        }
+      if (trigger === "update" && session) {
+        return { ...token, ...session.user };
       }
       return token;
     },

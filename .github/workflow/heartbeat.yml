@@ -1,0 +1,14 @@
+name: Render Heartbeat
+
+on:
+  schedule:
+    - cron: '*/10 * * * *'
+  workflow_dispatch: 
+
+jobs:
+  ping-server:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Heartbeat Request
+        run: |
+          curl -I -s https://primechat1.onrender.com//api/healthz

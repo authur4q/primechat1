@@ -310,12 +310,7 @@ export default function ChatPage() {
                 value={message} 
                 onChange={handleInputChange} 
                 placeholder="Type a message" 
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter' && !e.shiftKey) {
-                    e.preventDefault();
-                    sendMessage();
-                  }
-                }}
+ 
               />
               <button type="submit" className={styles.sendButton}>➤</button>
             </form>
